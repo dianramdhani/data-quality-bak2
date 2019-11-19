@@ -4,11 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  loggedIn = false;
+  // its dev. change to false for implementation.
+  loggedIn = true;
 
   isAuthenticated() {
     const promise = new Promise((resolve, reject) => {
-      setTimeout(() => resolve(this.loggedIn), 3000);
+      setTimeout(() => resolve(this.loggedIn), 500);
     });
     return promise;
   }
