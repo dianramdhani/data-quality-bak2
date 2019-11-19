@@ -20,7 +20,12 @@
 	"src/themes/dashforge/lib/jquery.flot/jquery.flot.js",
 	"src/themes/dashforge/lib/jquery.flot/jquery.flot.stack.js",
 	"src/themes/dashforge/lib/jquery.flot/jquery.flot.resize.js",
-	"src/themes/dashforge/assets/js/dashforge.js"
+	"src/themes/dashforge/assets/js/dashforge.js",
+	{
+		"input": "src/themes/dashforge/assets/js/dashforge.aside.js",
+		"lazy": true,
+		"bundleName": "dashforge.aside"
+	}
 ]
 ...
 ```
@@ -28,7 +33,12 @@
 > Add code on wrapper component
 
 ```typescript
+import { replace } from 'feather-icons';
+...
 ngAfterViewInit() {
-    require('../../src/themes/dashforge/assets/js/dashforge.aside.js');
+    const scriptElement = document.createElement('script');
+    scriptElement.src = './dashforge.aside.js';
+    document.body.appendChild(scriptElement);
+    replace();
 }
 ```
