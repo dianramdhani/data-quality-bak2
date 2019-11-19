@@ -42,7 +42,11 @@
               "src/themes/dashforge/lib/jquery.flot/jquery.flot.js",
               "src/themes/dashforge/lib/jquery.flot/jquery.flot.stack.js",
               "src/themes/dashforge/lib/jquery.flot/jquery.flot.resize.js",
-              "src/themes/dashforge/assets/js/dashforge.js",
+              {
+                "input": "src/themes/dashforge/assets/js/dashforge.js",
+                "lazy": true,
+                "bundleName": "dashforge"
+              },
               {
                 "input": "src/themes/dashforge/assets/js/dashforge.aside.js",
                 "lazy": true,

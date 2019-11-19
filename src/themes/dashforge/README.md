@@ -19,7 +19,11 @@
 	"src/themes/dashforge/lib/jquery.flot/jquery.flot.js",
 	"src/themes/dashforge/lib/jquery.flot/jquery.flot.stack.js",
 	"src/themes/dashforge/lib/jquery.flot/jquery.flot.resize.js",
-	"src/themes/dashforge/assets/js/dashforge.js",
+	{
+		"input": "src/themes/dashforge/assets/js/dashforge.js",
+		"lazy": true,
+		"bundleName": "dashforge"
+	},
 	{
 		"input": "src/themes/dashforge/assets/js/dashforge.aside.js",
 		"lazy": true,
@@ -33,10 +37,23 @@
 ```typescript
 import { replace } from 'feather-icons';
 ...
+scriptElements = [
+	document.createElement('script'),
+	document.createElement('script')
+];
+
 ngAfterViewInit() {
-    const scriptElement = document.createElement('script');
-    scriptElement.src = './dashforge.aside.js';
-    document.body.appendChild(scriptElement);
-    replace();
+	this.scriptElements[0].src = './dashforge.js';
+	this.scriptElements[1].src = './dashforge.aside.js';
+	this.scriptElements.forEach(scriptElement => {
+		document.body.appendChild(scriptElement);
+	});
+	replace();
+}
+
+ngOnDestroy() {
+	this.scriptElements.forEach(scriptElement => {
+		scriptElement.parentElement.removeChild(scriptElement);
+	});
 }
 ```
