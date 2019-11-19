@@ -6,17 +6,13 @@ interface SubMenu {
     active?: boolean
 }
 
-export class Menu {
-    constructor(args: {
-        type: Type,
-        label: string,
-        icon?: string,
-        state?: State,
-        subMenus?: SubMenu[],
-        active?: boolean
-    }) {
-        Object.assign(this, args);
-    }
+export interface Menu {
+    type: Type,
+    label: string,
+    icon?: string,
+    state?: State,
+    subMenus?: SubMenu[],
+    active?: boolean
 }
 
 export enum Type {

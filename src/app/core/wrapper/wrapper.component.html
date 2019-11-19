@@ -15,7 +15,8 @@
                     'nav-item with-sub': menu.type === type.HASSUBMENUS
                 }">
                 <ng-container *ngIf="menu.type === type.TITLE">{{ menu.label }}</ng-container>
-                <a href="" class="nav-link" *ngIf="menu.type === type.LINK">
+                <a href="" class="nav-link" *ngIf="menu.type === type.LINK" [routerLink]="[menu.state.to]"
+                    routerLinkActive="active">
                     <i [attr.data-feather]="menu.icon"></i> <span>{{ menu.label }}</span>
                 </a>
                 <a href="" class="nav-link" *ngIf="menu.type === type.HASSUBMENUS">
@@ -54,7 +55,7 @@
 
     <div class="content-body">
         <div class="container-fluid pd-x-0">
-            testing
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

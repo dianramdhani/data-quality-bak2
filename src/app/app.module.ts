@@ -10,13 +10,19 @@ import { AppComponent } from './app.component';
 import { WrapperComponent } from './core/wrapper/wrapper.component';
 import { UserComponent } from './pages/user/user.component';
 import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NormalizeRuleComponent } from './pages/normalize-rule/normalize-rule.component';
+import { SourceDataUploadComponent } from './pages/source-data-upload/source-data-upload.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WrapperComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    NormalizeRuleComponent,
+    SourceDataUploadComponent
   ],
   imports: [
     BrowserModule,

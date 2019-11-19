@@ -11,52 +11,25 @@ import { ConfigService } from '../../services/config.service';
 })
 export class UserComponent {
   menus: Menu[] = [
-    new Menu({
-      type: Type.TITLE,
-      label: 'hallo title'
-    }),
-    new Menu({
+    {
       type: Type.LINK,
-      label: 'testing',
+      label: 'Dashboard',
       icon: 'monitor',
-      state: { to: 'testing', params: {} },
+      state: { to: '/user/dashboard', params: {} },
       active: true
-    }),
-    new Menu({
+    },
+    {
       type: Type.LINK,
-      label: 'testing2',
-      icon: 'book-open',
-      state: { to: 'testing', params: {} }
-    }),
-    new Menu({
-      type: Type.TITLE,
-      label: 'hallo title 2'
-    }),
-    new Menu({
+      label: 'Normalize Rule',
+      icon: 'monitor',
+      state: { to: '/user/normalize-rule', params: {} }
+    },
+    {
       type: Type.LINK,
-      label: 'testing2',
-      icon: 'book-open',
-      state: { to: 'testing', params: {} }
-    }),
-    new Menu({
-      type: Type.HASSUBMENUS,
-      label: 'has sub menu',
-      icon: 'book-open',
-      subMenus: [
-        {
-          label: 'sub 1',
-          state: { to: 'testing', params: {} }
-        },
-        {
-          label: 'sub 2',
-          state: { to: 'testing', params: {} }
-        },
-        {
-          label: 'sub 3',
-          state: { to: 'testing', params: {} }
-        }
-      ]
-    })
+      label: 'Source Data Upload',
+      icon: 'monitor',
+      state: { to: '/user/source-data-upload', params: {} }
+    }
   ];
   constructor(private config: ConfigService) {
     console.log(this.config.getConfig());
