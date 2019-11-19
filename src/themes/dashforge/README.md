@@ -3,7 +3,6 @@
 > Update angular.json
 
 ```javascript
-...
 "styles": [
 	"src/themes/dashforge/lib/@fortawesome/fontawesome-free/css/all.min.css",
 	"src/themes/dashforge/lib/ionicons/css/ionicons.min.css",
@@ -27,7 +26,6 @@
 		"bundleName": "dashforge.aside"
 	}
 ]
-...
 ```
 
 > Add code on wrapper component
