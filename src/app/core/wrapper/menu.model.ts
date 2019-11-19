@@ -2,8 +2,7 @@ interface State { to: string, params: {} }
 
 interface SubMenu {
     label: string,
-    state: State,
-    active?: boolean
+    state: State
 }
 
 export interface Menu {
@@ -12,7 +11,6 @@ export interface Menu {
     icon?: string,
     state?: State,
     subMenus?: SubMenu[],
-    active?: boolean
 }
 
 export enum Type {

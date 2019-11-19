@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewEncapsulation, Input, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ViewEncapsulation, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { replace } from 'feather-icons';
 
@@ -10,15 +10,10 @@ import { Menu, Type } from './menu.model';
   styleUrls: ['./wrapper.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class WrapperComponent implements AfterViewInit, OnInit {
+export class WrapperComponent implements AfterViewInit {
   @Input() menus: Menu[];
   type = Type;
   constructor(private router: Router) { }
-
-  ngOnInit() {
-    const menuDefault = this.menus.find((menu: Menu) => menu.active === true);
-    this.router.navigate([menuDefault.state.to]);
-  }
 
   ngAfterViewInit() {
     const scriptElement = document.createElement('script');

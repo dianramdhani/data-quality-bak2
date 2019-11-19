@@ -15,8 +15,7 @@ export class UserComponent {
       type: Type.LINK,
       label: 'Dashboard',
       icon: 'monitor',
-      state: { to: '/user/dashboard', params: {} },
-      active: true
+      state: { to: '/user/dashboard', params: {} }
     },
     {
       type: Type.LINK,
