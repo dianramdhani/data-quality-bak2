@@ -4,10 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
+// Services
 import { ConfigService, ConfigLoader } from './services/config.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 import { AppComponent } from './app.component';
+
+// Core
 import { WrapperComponent } from './core/wrapper/wrapper.component';
+
+// Pages
 import { UserComponent } from './pages/user/user.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -36,7 +43,9 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
       useFactory: ConfigLoader,
       deps: [ConfigService],
       multi: true
-    }
+    },
+    AuthService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
