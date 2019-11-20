@@ -38,14 +38,12 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
     AppRoutingModule
   ],
   providers: [
-    ConfigService,
     {
       provide: APP_INITIALIZER,
       useFactory: ConfigLoader,
       deps: [ConfigService],
       multi: true
-    },
-    AuthService
+    }
   ],
   bootstrap: [AppComponent]
 })
