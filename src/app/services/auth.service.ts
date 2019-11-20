@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { BehaviorSubject } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { BehaviorSubject, throwError } from 'rxjs';
+import { tap, catchError } from 'rxjs/operators';
 
 import { ConfigService } from './config.service';
 
@@ -19,6 +19,9 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http.post<AuthResData>(`${this.url}/login`, { username, password })
       .pipe(
+        catchError(errorRes => {
+          return throwError(errorRes.message);
+        }),
         tap(resData => {
           const user = new User(resData.name, resData.role, resData.token);
           this.user.next(user);

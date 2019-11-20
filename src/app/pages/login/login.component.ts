@@ -10,12 +10,23 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  error: string;
+  spinner = false;
+
   constructor(private router: Router, private auth: AuthService) { }
 
   login(form: NgForm) {
     const { username, password } = form.value;
-    this.auth.login(username, password).subscribe(resData => {
-      this.router.navigate(['/user/dashboard']);
-    });
+    this.spinner = true;
+    this.auth.login(username, password).subscribe(
+      resData => {
+        this.spinner = false;
+        this.router.navigate(['/user/dashboard']);
+      },
+      errorMessage => {
+        this.spinner = false;
+        this.error = errorMessage;
+      }
+    );
   }
 }

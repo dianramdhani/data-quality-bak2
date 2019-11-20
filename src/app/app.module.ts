@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { ConfigService, ConfigLoader } from './services/config.service';
 
 // Core
 import { WrapperComponent } from './core/wrapper/wrapper.component';
+import { SpinnerComponent } from './core/spinner/spinner.component';
 
 // Pages
 import { UserComponent } from './pages/user/user.component';
@@ -23,6 +25,7 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
   declarations: [
     AppComponent,
     WrapperComponent,
+    SpinnerComponent,
     UserComponent,
     LoginComponent,
     DashboardComponent,
@@ -33,6 +36,7 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     AppRoutingModule
   ],
   providers: [
