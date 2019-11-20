@@ -10,15 +10,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
   constructor(private router: Router, private auth: AuthService) { }
 
   login(form: NgForm) {
     const { username, password } = form.value;
     this.auth.login(username, password).subscribe(resData => {
-      console.log(resData);
       this.router.navigate(['/user/dashboard']);
     });
   }
-
 }

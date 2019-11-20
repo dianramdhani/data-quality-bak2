@@ -30,7 +30,6 @@ export class UserComponent {
       state: { to: '/user/source-data-upload', params: {} }
     }
   ];
-  constructor(private config: ConfigService) {
-    console.log(this.config.getConfig());
-  }
+
+  constructor(private config: ConfigService) { }
 }
