@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Services
 import { ConfigService, ConfigLoader } from './services/config.service';
-import { AuthService } from './services/auth.service';
 
 import { AppComponent } from './app.component';
 
