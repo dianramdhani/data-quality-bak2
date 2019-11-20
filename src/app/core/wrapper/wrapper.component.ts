@@ -37,6 +37,5 @@ export class WrapperComponent implements AfterViewInit, OnDestroy {
 
   logout() {
     this.auth.logout();
-    this.router.navigate(['/login']);
   }
 }

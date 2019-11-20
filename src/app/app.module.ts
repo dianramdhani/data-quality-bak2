@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 
 // Services
 import { ConfigService, ConfigLoader } from './services/config.service';
 import { AuthService } from './services/auth.service';
-import { AuthGuardService } from './services/auth-guard.service';
 
 import { AppComponent } from './app.component';
 
@@ -34,6 +34,7 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [
@@ -44,8 +45,7 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
       deps: [ConfigService],
       multi: true
     },
-    AuthService,
-    AuthGuardService
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

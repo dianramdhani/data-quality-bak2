@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,9 +13,12 @@ export class LoginComponent {
 
   constructor(private router: Router, private auth: AuthService) { }
 
-  login() {
-    this.auth.login();
-    this.router.navigate(['/user/dashboard']);
+  login(form: NgForm) {
+    const { username, password } = form.value;
+    this.auth.login(username, password).subscribe(resData => {
+      console.log(resData);
+      this.router.navigate(['/user/dashboard']);
+    });
   }
 
 }
