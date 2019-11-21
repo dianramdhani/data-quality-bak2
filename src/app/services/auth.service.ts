@@ -6,6 +6,7 @@ import { BehaviorSubject, throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
 import { ConfigService } from './config.service';
+import { LocalStorage, TypeLocalStorage } from './util.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -25,12 +26,14 @@ export class AuthService {
         tap(resData => {
           const user = new User(resData.name, resData.role, resData.token);
           this.user.next(user);
+          LocalStorage.setItem<User>(TypeLocalStorage.AUTH, user);
         })
       );
   }
 
   logout() {
     this.user.next(null);
+    LocalStorage.removeItem(TypeLocalStorage.AUTH);
     this.router.navigate(['/login']);
   }
 }
@@ -41,7 +44,7 @@ interface AuthResData {
   token: string
 }
 
-class User {
+export class User {
   constructor(public name: string, public role: string, private _token: string) { }
 
   get token() {

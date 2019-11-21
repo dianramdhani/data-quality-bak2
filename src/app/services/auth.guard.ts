@@ -3,7 +3,8 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { AuthService } from './auth.service';
+import { AuthService, User } from './auth.service';
+import { LocalStorage, TypeLocalStorage } from './util.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    const lastAuth = LocalStorage.getItem<User>(TypeLocalStorage.AUTH);
+    if (!!lastAuth) {
+      return true;
+    }
     return this.auth.user.pipe(
       map(user => {
         const isAuth = !!user;
