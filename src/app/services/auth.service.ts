@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { BehaviorSubject, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
 import { ConfigService } from './config.service';
@@ -11,7 +11,6 @@ import { LocalStorage, TypeLocalStorage } from './util.service';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   url: string;
-  user = new BehaviorSubject<User>(null);
 
   constructor(private http: HttpClient, private router: Router, private config: ConfigService) {
     this.url = this.config.getConfig().API;
@@ -25,14 +24,12 @@ export class AuthService {
         }),
         tap(resData => {
           const user = new User(resData.name, resData.role, resData.token);
-          this.user.next(user);
-          LocalStorage.setItem<User>(TypeLocalStorage.AUTH, user);
+          LocalStorage.setItem(TypeLocalStorage.AUTH, user);
         })
       );
   }
 
   logout() {
-    this.user.next(null);
     LocalStorage.removeItem(TypeLocalStorage.AUTH);
     this.router.navigate(['/login']);
   }
@@ -45,7 +42,11 @@ interface AuthResData {
 }
 
 export class User {
-  constructor(public name: string, public role: string, private _token: string) { }
+  constructor(private _name: string, public role: string, private _token: string) { }
+
+  get name() {
+    return this._name;
+  }
 
   get token() {
     return this._token;

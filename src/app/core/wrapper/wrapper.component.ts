@@ -1,9 +1,9 @@
 import { Component, AfterViewInit, ViewEncapsulation, Input, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { replace } from 'feather-icons';
 
 import { Menu, Type } from './menu.model';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService, User } from 'src/app/services/auth.service';
+import { LocalStorage, TypeLocalStorage } from '../../services/util.service';
 
 @Component({
   selector: 'app-wrapper',
@@ -18,7 +18,11 @@ export class WrapperComponent implements AfterViewInit, OnDestroy {
     document.createElement('script'),
     document.createElement('script')
   ];
-  constructor(private router: Router, private auth: AuthService) { }
+  name: string;
+
+  constructor(private auth: AuthService) {
+    this.name = Object.assign(User.prototype, LocalStorage.getItem(TypeLocalStorage.AUTH)).name;
+  }
 
   ngAfterViewInit() {
     this.scriptElements[0].src = './dashforge.js';

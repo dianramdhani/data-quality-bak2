@@ -10,6 +10,7 @@ import { NormalizeRuleComponent } from './pages/normalize-rule/normalize-rule.co
 import { SourceDataUploadComponent } from './pages/source-data-upload/source-data-upload.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/user/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   {
     path: 'user', component: UserComponent, canActivate: [AuthGuard], children: [
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'source-data-upload', component: SourceDataUploadComponent },
     ]
   },
+  { path: '**', redirectTo: '/user/dashboard' }
 ];
 
 @NgModule({
