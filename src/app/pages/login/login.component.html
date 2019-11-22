@@ -4,7 +4,7 @@
         <div class="pd-b-20" *ngIf="spinner">
             <app-spinner style="zoom: 0.5"></app-spinner>
         </div>
-        <form name="formLoginDataQuality" *ngIf="!spinner" #formAuth="ngForm" (ngSubmit)="login(formAuth)">
+        <form name="formLogin" *ngIf="!spinner" #formAuth="ngForm" (ngSubmit)="login(formAuth)">
             <ngb-alert *ngIf="error" (close)="error = null">{{ error }}</ngb-alert>
             <div class="form-group">
                 <label for="username" class="d-block">Username</label>
