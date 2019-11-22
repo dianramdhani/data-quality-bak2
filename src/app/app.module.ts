@@ -20,6 +20,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NormalizeRuleComponent } from './pages/normalize-rule/normalize-rule.component';
 import { SourceDataUploadComponent } from './pages/source-data-upload/source-data-upload.component';
+import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
     LoginComponent,
     DashboardComponent,
     NormalizeRuleComponent,
-    SourceDataUploadComponent
+    SourceDataUploadComponent,
+    AccountSettingsComponent
   ],
   imports: [
     BrowserModule,

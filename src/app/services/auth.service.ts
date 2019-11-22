@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-
 import { throwError } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 
@@ -12,7 +10,7 @@ import { LocalStorage, TypeLocalStorage } from './util.service';
 export class AuthService {
   url: string;
 
-  constructor(private http: HttpClient, private router: Router, private config: ConfigService) {
+  constructor(private http: HttpClient, private config: ConfigService) {
     this.url = this.config.getConfig().API;
   }
 
@@ -31,7 +29,6 @@ export class AuthService {
 
   logout() {
     LocalStorage.removeItem(TypeLocalStorage.AUTH);
-    this.router.navigate(['/login']);
   }
 }
 

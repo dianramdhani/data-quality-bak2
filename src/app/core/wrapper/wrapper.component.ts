@@ -39,8 +39,4 @@ export class WrapperComponent implements AfterViewInit, OnDestroy {
       scriptElement.parentElement.removeChild(scriptElement);
     });
   }
-
-  logout() {
-    this.auth.logout();
-  }
 }
