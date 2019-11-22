@@ -1,4 +1,4 @@
-<form name="formRule" class="modal-content tx-10" #formRule="ngForm" (ngSubmit)="saveRule(formRule)">
+<form name="formRule" class="modal-content tx-10" [formGroup]="formRule" (ngSubmit)="saveRule()">
     <div class="modal-header">
         <h6 class="modal-title" ng-attr-id="exampleModalLabel">Rule Form</h6>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"
@@ -9,7 +9,7 @@
     <div class="modal-body pd-x-30">
         <div class="form-group">
             <label for="fieldName">Type</label>
-            <select class="form-control" id="fieldName" name="fieldName" required [ngModel]="rule.fieldName">
+            <select class="form-control" id="fieldName" formControlName="fieldName">
                 <option value="title">Title</option>
                 <option value="address">Address</option>
                 <option value="npwp">NPWP</option>
@@ -17,17 +17,16 @@
         </div>
         <div class="form-group">
             <label for="oldContent">Content</label>
-            <input type="text" class="form-control" id="oldContent" name="oldContent" required
-                [ngModel]="rule.oldContent">
+            <input type="text" class="form-control" id="oldContent" formControlName="oldContent">
         </div>
         <div class="form-group">
             <label for="newContent">Replacement</label>
-            <input type="text" class="form-control" id="newContent" name="newContent" [ngModel]="rule.newContent">
+            <input type="text" class="form-control" id="newContent" formControlName="newContent">
         </div>
         <div class="form-group">
             <label>Word</label>
             <div class="custom-control custom-switch pd-l-20">
-                <input type="checkbox" class="custom-control-input" id="word" name="word" [ngModel]="rule.word">
+                <input type="checkbox" class="custom-control-input" id="word" formControlName="word">
                 <label class=" custom-control-label" for="word"></label>
             </div>
         </div>

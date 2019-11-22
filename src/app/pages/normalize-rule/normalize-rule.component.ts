@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Rule } from './rule.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { RuleFormComponent } from './rule-form/rule-form.component';
+import { RuleFormComponent, Type } from './rule-form/rule-form.component';
 
 @Component({
   selector: 'app-normalize-rule',
@@ -12,6 +12,7 @@ import { RuleFormComponent } from './rule-form/rule-form.component';
 })
 export class NormalizeRuleComponent implements OnInit {
   rules: Rule[];
+  type = Type;
 
   constructor(private http: HttpClient, private modal: NgbModal) { }
 
@@ -19,8 +20,8 @@ export class NormalizeRuleComponent implements OnInit {
     this.rules = await this.http.get<Rule[]>('./assets/test/rules.test.json').toPromise();
   }
 
-  openRuleForm(rule = new Rule('', 'title', '', '', false)) {
+  openRuleForm(type: Type, rule?: Rule) {
     const modalRef = this.modal.open(RuleFormComponent);
-    modalRef.componentInstance.rule = rule;
+    Object.assign(modalRef.componentInstance, { type, rule });
   }
 }
