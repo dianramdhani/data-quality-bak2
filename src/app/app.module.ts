@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 // Services
 import { ConfigService, ConfigLoader } from './services/config.service';
-import { AuthService } from './services/auth.service';
-import { AuthGuardService } from './services/auth-guard.service';
-
-import { AppComponent } from './app.component';
 
 // Core
 import { WrapperComponent } from './core/wrapper/wrapper.component';
+import { SpinnerComponent } from './core/spinner/spinner.component';
 
 // Pages
 import { UserComponent } from './pages/user/user.component';
@@ -25,6 +25,7 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
   declarations: [
     AppComponent,
     WrapperComponent,
+    SpinnerComponent,
     UserComponent,
     LoginComponent,
     DashboardComponent,
@@ -34,18 +35,17 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    NgbModule,
     AppRoutingModule
   ],
   providers: [
-    ConfigService,
     {
       provide: APP_INITIALIZER,
       useFactory: ConfigLoader,
       deps: [ConfigService],
       multi: true
-    },
-    AuthService,
-    AuthGuardService
+    }
   ],
   bootstrap: [AppComponent]
 })
