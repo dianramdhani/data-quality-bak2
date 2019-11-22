@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Rule } from './rule.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RuleFormComponent, Type } from './rule-form/rule-form.component';
 
 @Component({
   selector: 'app-normalize-rule',
@@ -10,11 +12,19 @@ import { Rule } from './rule.model';
 })
 export class NormalizeRuleComponent implements OnInit {
   rules: Rule[];
+  type = Type;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private modal: NgbModal) { }
 
   async ngOnInit() {
     this.rules = await this.http.get<Rule[]>('./assets/test/rules.test.json').toPromise();
-    console.log(this.rules);
+  }
+
+  openRuleForm(type: Type, rule?: Rule) {
+    const modalRef = this.modal.open(RuleFormComponent);
+    Object.assign(modalRef.componentInstance, { type, rule });
+    modalRef.componentInstance.refresh.subscribe(() => {
+      console.log('ini refresh table');
+    });
   }
 }
