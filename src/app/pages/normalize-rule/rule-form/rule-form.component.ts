@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -12,6 +12,7 @@ import { Rule } from '../rule.model';
 export class RuleFormComponent implements OnInit {
   @Input() rule: Rule;
   @Input() type: Type;
+  @Output() refresh = new EventEmitter<any>();
   formRule = new FormGroup({
     id: new FormControl(),
     fieldName: new FormControl('type', [Validators.required]),
@@ -20,7 +21,7 @@ export class RuleFormComponent implements OnInit {
     word: new FormControl()
   });
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit() {
     if (this.type === Type.UPDATE) {
@@ -35,6 +36,8 @@ export class RuleFormComponent implements OnInit {
      * check from type.
      */
     console.log(this.formRule.value);
+    this.activeModal.close();
+    this.refresh.emit();
   }
 }
 

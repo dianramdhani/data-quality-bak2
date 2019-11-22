@@ -23,5 +23,8 @@ export class NormalizeRuleComponent implements OnInit {
   openRuleForm(type: Type, rule?: Rule) {
     const modalRef = this.modal.open(RuleFormComponent);
     Object.assign(modalRef.componentInstance, { type, rule });
+    modalRef.componentInstance.refresh.subscribe(() => {
+      console.log('ini refresh table');
+    });
   }
 }
