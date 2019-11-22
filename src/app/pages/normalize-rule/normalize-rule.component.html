@@ -7,3 +7,26 @@
         </ol>
     </nav>
 </div>
+<div class="card">
+    <h6 class="card-header mg-b-0 bd-b-0">List Rules</h6>
+    <div class="table-responsive">
+        <table class="table table-hover table-dashboard">
+            <thead>
+                <tr>
+                    <th>Field Name</th>
+                    <th>Old Content</th>
+                    <th>New Content</th>
+                    <th>Word</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rule of rules">
+                    <td>{{ rule.fieldName }}</td>
+                    <td>{{ rule.oldContent }}</td>
+                    <td>{{ rule.newContent }}</td>
+                    <td>{{ rule.word }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
