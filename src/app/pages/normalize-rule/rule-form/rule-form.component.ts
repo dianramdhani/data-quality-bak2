@@ -29,6 +29,11 @@ export class RuleFormComponent implements OnInit {
   }
 
   saveRule() {
+    /**
+     * @todo
+     * if update to new fn and another else.
+     * check from type.
+     */
     console.log(this.formRule.value);
   }
 }
