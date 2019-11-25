@@ -32,9 +32,9 @@ import { SourceDataUploadComponent } from './pages/source-data-upload/source-dat
 import { ListDataComponent } from './pages/source-data-upload/list-data/list-data.component';
 import { FindMatchComponent } from './pages/source-data-upload/find-match/find-match.component';
 import { MergeFormComponent } from './pages/source-data-upload/merge-form/merge-form.component';
+import { ListFileComponent } from './pages/source-data-upload/list-file/list-file.component';
 
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
-import { ListFileComponent } from './pages/source-data-upload/list-file/list-file.component';
 
 @NgModule({
   declarations: [
