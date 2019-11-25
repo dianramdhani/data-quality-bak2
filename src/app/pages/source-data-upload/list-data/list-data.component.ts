@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Data } from './data.model';
 import { map } from 'rxjs/operators';
+
+import { Data } from './data.model';
 
 @Component({
   selector: 'app-list-data',
@@ -10,6 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class ListDataComponent implements OnInit {
   data: Data[];
+  
   constructor(private http: HttpClient) { }
 
   async ngOnInit() {

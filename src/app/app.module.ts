@@ -34,6 +34,7 @@ import { FindMatchComponent } from './pages/source-data-upload/find-match/find-m
 import { MergeFormComponent } from './pages/source-data-upload/merge-form/merge-form.component';
 
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
+import { ListFileComponent } from './pages/source-data-upload/list-file/list-file.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AccountSettingsComponent } from './pages/account-settings/account-setti
     RuleFormComponent,
     ListDataComponent,
     FindMatchComponent,
-    MergeFormComponent
+    MergeFormComponent,
+    ListFileComponent
   ],
   imports: [
     BrowserModule,
