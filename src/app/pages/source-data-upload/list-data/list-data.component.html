@@ -1,0 +1,23 @@
+<div class="card">
+    <h6 class="card-header mg-b-0 bd-b-0">List Rules</h6>
+    <div class="table-responsive">
+        <table class="table table-hover table-dashboard mb-0">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>NPWP</th>
+                    <th>Date of Birth</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let datum of data">
+                    <td>{{ datum.fullName }}</td>
+                    <td>{{ datum.npwp }}</td>
+                    <td>{{ datum.dob }}</td>
+                    <td>{{ datum.status }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

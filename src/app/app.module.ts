@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms'
-import { ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +29,9 @@ import { NormalizeRuleComponent } from './pages/normalize-rule/normalize-rule.co
 import { RuleFormComponent } from './pages/normalize-rule/rule-form/rule-form.component';
 
 import { SourceDataUploadComponent } from './pages/source-data-upload/source-data-upload.component';
+import { ListDataComponent } from './pages/source-data-upload/list-data/list-data.component';
+import { FindMatchComponent } from './pages/source-data-upload/find-match/find-match.component';
+import { MergeFormComponent } from './pages/source-data-upload/merge-form/merge-form.component';
 
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 
@@ -43,7 +46,10 @@ import { AccountSettingsComponent } from './pages/account-settings/account-setti
     NormalizeRuleComponent,
     SourceDataUploadComponent,
     AccountSettingsComponent,
-    RuleFormComponent
+    RuleFormComponent,
+    ListDataComponent,
+    FindMatchComponent,
+    MergeFormComponent
   ],
   imports: [
     BrowserModule,
