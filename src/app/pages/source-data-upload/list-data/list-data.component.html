@@ -3,7 +3,7 @@
         <h6 class="mg-b-0">List Data</h6>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-style2 mg-b-0">
-                <li class="breadcrumb-item">List File</li>
+                <li class="breadcrumb-item"><a href="" routerLink="../">List File</a></li>
                 <li class="breadcrumb-item active" aria-current="page">List Data</li>
             </ol>
         </nav>
@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let datum of data">
+                <tr *ngFor="let datum of data" routerLink="./merge-form" routerLinkActive="router-link-active">
                     <td>{{ datum.fullName }}</td>
                     <td>{{ datum.npwp }}</td>
                     <td>{{ datum.dob }}</td>

@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let file of files">
+                <tr *ngFor="let file of files" routerLink="./list-data">
                     <td>{{ file.uploadDate | date }}</td>
                     <td>{{ file.filename }}</td>
                     <td>{{ file.filesize }}</td>
