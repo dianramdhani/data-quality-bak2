@@ -1,5 +1,14 @@
-<div class="card mg-t-10">
-    <h6 class="card-header mg-b-0">Find Match</h6>
+<div class="card">
+    <div class="card-header bd-b-0 d-md-flex justify-content-between">
+        <h6 class="mg-b-0">Find Match</h6>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style2 mg-b-0">
+                <li class="breadcrumb-item"><a href="" routerLink="../../">List File</a></li>
+                <li class="breadcrumb-item"><a href="" routerLink="../">List Data</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Find Match</li>
+            </ol>
+        </nav>
+    </div>
     <div class="card-body row row-xs">
         <div class="col-lg-4 col-xl-3">
             <div class="card">
@@ -56,7 +65,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let datum of dataMatch">
+                            <tr *ngFor="let datum of dataMatch" routerLink="./merge-form">
                                 <td>{{ datum.npwp }}</td>
                                 <td>{{ datum.nik }}</td>
                                 <td>{{ datum.fullName }}</td>
