@@ -21,7 +21,7 @@ export class RuleFormComponent implements OnInit {
     word: new FormControl()
   });
 
-  constructor(private activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
     if (this.type === Type.UPDATE) {
