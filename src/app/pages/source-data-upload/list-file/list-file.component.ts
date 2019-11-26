@@ -29,7 +29,5 @@ export class ListFileComponent implements OnInit {
         });
       }))
       .toPromise();
-      console.log(this.files);
   }
-
 }
