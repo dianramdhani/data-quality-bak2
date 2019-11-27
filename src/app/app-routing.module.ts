@@ -19,6 +19,8 @@ import { ListDataComponent } from './pages/source-data-upload/list-data/list-dat
 import { FindMatchComponent } from './pages/source-data-upload/find-match/find-match.component';
 import { MergeFormComponent } from './pages/source-data-upload/merge-form/merge-form.component';
 
+import { ObjectMakerComponent } from './pages/object-maker/object-maker.component';
+
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 
 
@@ -37,6 +39,7 @@ const routes: Routes = [
           { path: 'list-data/find-match/merge-form', component: MergeFormComponent }
         ]
       },
+      { path: 'object-maker', component: ObjectMakerComponent },
       { path: 'account-settings', component: AccountSettingsComponent },
     ]
   },

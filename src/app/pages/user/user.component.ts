@@ -19,6 +19,12 @@ export class UserComponent {
     },
     {
       type: Type.LINK,
+      label: 'Object Maker',
+      icon: 'database',
+      state: { to: '/user/object-maker', params: {} }
+    },
+    {
+      type: Type.LINK,
       label: 'Normalize Rule',
       icon: 'check-square',
       state: { to: '/user/normalize-rule', params: {} }

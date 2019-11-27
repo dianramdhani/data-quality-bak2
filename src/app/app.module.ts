@@ -35,6 +35,7 @@ import { MergeFormComponent } from './pages/source-data-upload/merge-form/merge-
 import { ListFileComponent } from './pages/source-data-upload/list-file/list-file.component';
 
 import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
+import { ObjectMakerComponent } from './pages/object-maker/object-maker.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AccountSettingsComponent } from './pages/account-settings/account-setti
     ListDataComponent,
     FindMatchComponent,
     MergeFormComponent,
-    ListFileComponent
+    ListFileComponent,
+    ObjectMakerComponent
   ],
   imports: [
     BrowserModule,
