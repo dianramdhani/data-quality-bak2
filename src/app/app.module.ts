@@ -34,8 +34,10 @@ import { FindMatchComponent } from './pages/source-data-upload/find-match/find-m
 import { MergeFormComponent } from './pages/source-data-upload/merge-form/merge-form.component';
 import { ListFileComponent } from './pages/source-data-upload/list-file/list-file.component';
 
-import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 import { ObjectMakerComponent } from './pages/object-maker/object-maker.component';
+import { ObjectFormComponent } from './pages/object-maker/object-form/object-form.component';
+
+import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { ObjectMakerComponent } from './pages/object-maker/object-maker.componen
     FindMatchComponent,
     MergeFormComponent,
     ListFileComponent,
-    ObjectMakerComponent
+    ObjectMakerComponent,
+    ObjectFormComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { ObjectMakerComponent } from './pages/object-maker/object-maker.componen
   ],
   bootstrap: [AppComponent],
   entryComponents: [
-    RuleFormComponent
+    RuleFormComponent,
+    ObjectFormComponent
   ]
 })
 export class AppModule { }
