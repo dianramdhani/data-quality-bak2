@@ -18,11 +18,10 @@ export class WrapperComponent implements AfterViewInit, OnDestroy {
     document.createElement('script'),
     document.createElement('script')
   ];
-  name: string;
+  user: User;
 
   constructor(private auth: AuthService) {
-    const user = Object.setPrototypeOf(LocalStorage.getItem(TypeLocalStorage.AUTH), User.prototype);
-    this.name = user.name;
+    this.user = Object.setPrototypeOf(LocalStorage.getItem(TypeLocalStorage.AUTH), User.prototype);
   }
 
   ngAfterViewInit() {

@@ -33,16 +33,21 @@ export class AuthService {
 }
 
 interface AuthResData {
+  uid: string,
   name: string,
   role: string,
   token: string
 }
 
 export class User {
-  constructor(private _name: string, public role: string, private _token: string) { }
+  constructor(private _name: string, private _role: string, private _token: string) { }
 
   get name() {
     return this._name;
+  }
+
+  get role() {
+    return this._role;
   }
 
   get token() {
